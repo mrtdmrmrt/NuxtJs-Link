@@ -1,0 +1,136 @@
+warning: LF will be replaced by CRLF in .nuxt/App.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/client.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt-build-indicator.vue.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt-child.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt-error.vue.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt-link.client.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt-link.server.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt-loading.vue.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/components/nuxt.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/empty.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/index.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/loading.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/middleware.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/router.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/router.scrollBehavior.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/server.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/utils.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/views/app.template.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .nuxt/views/error.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in layouts/default.vue.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in pages/products/_productId/index.vue.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in pages/products/index.vue.
+The file will have its original line endings in your working directory
+[1mdiff --git a/.nuxt/router.js b/.nuxt/router.js[m
+[1mindex 76935ee..7ada7fe 100644[m
+[1m--- a/.nuxt/router.js[m
+[1m+++ b/.nuxt/router.js[m
+[36m@@ -3,6 +3,7 @@[m [mimport Router from 'vue-router'[m
+ import { interopDefault } from './utils'[m
+ import scrollBehavior from './router.scrollBehavior.js'[m
+ [m
+[32m+[m[32mconst _a968f796 = () => interopDefault(import('..\\pages\\products.vue' /* webpackChunkName: "pages_products" */))[m
+ const _8d2ecaa6 = () => interopDefault(import('..\\pages\\products\\index.vue' /* webpackChunkName: "pages_products_index" */))[m
+ const _4eb49e3c = () => interopDefault(import('..\\pages\\products\\_productId\\index.vue' /* webpackChunkName: "pages_products__productId_index" */))[m
+ const _8ae863ac = () => interopDefault(import('..\\pages\\products\\_productId\\edit.vue' /* webpackChunkName: "pages_products__productId_edit" */))[m
+[36m@@ -19,16 +20,20 @@[m [mexport const routerOptions = {[m
+ [m
+   routes: [{[m
+       path: "/products",[m
+[31m-      component: _8d2ecaa6,[m
+[31m-      name: "products"[m
+[31m-    }, {[m
+[31m-      path: "/products/:productId",[m
+[31m-      component: _4eb49e3c,[m
+[31m-      name: "products-productId"[m
+[31m-    }, {[m
+[31m-      path: "/products/:productId/edit",[m
+[31m-      component: _8ae863ac,[m
+[31m-      name: "products-productId-edit"[m
+[32m+[m[32m      component: _a968f796,[m
+[32m+[m[32m      children: [{[m
+[32m+[m[32m        path: "",[m
+[32m+[m[32m        component: _8d2ecaa6,[m
+[32m+[m[32m        name: "products"[m
+[32m+[m[32m      }, {[m
+[32m+[m[32m        path: ":productId",[m
+[32m+[m[32m        component: _4eb49e3c,[m
+[32m+[m[32m        name: "products-productId"[m
+[32m+[m[32m      }, {[m
+[32m+[m[32m        path: ":productId/edit",[m
+[32m+[m[32m        component: _8ae863ac,[m
+[32m+[m[32m        name: "products-productId-edit"[m
+[32m+[m[32m      }][m
+     }, {[m
+       path: "/",[m
+       component: _42d8ba5e,[m
+[1mdiff --git a/pages/products/_productId/index.vue b/pages/products/_productId/index.vue[m
+[1mindex e187f88..e0763f4 100644[m
+[1m--- a/pages/products/_productId/index.vue[m
+[1m+++ b/pages/products/_productId/index.vue[m
+[36m@@ -21,7 +21,8 @@[m
+     //validate de true dönerse sayfa açılır false dönerse sayfa açılmaz[m
+     validate(arg){[m
+       console.log(arg);[m
+[31m-      return true;[m
+[32m+[m[32m     // return arg.params.productId == 2;//2 dışında gelen sayılarda false döner[m
+[32m+[m[32m     return /^\d+$/.test(arg.params.productId) //regex kullanarak integer kontrolü yapıldı[m
+     },[m
+     methods : {[m
+       showProduct(){[m
+[1mdiff --git a/pages/products/index.vue b/pages/products/index.vue[m
+[1mindex 1d31915..4f40f7a 100644[m
+[1m--- a/pages/products/index.vue[m
+[1m+++ b/pages/products/index.vue[m
+[36m@@ -1,28 +1,11 @@[m
+ <template>[m
+   <div class="container">[m
+     <h3 class="title">Ürün Listesi</h3>[m
+[31m-    <div class="input-container">[m
+[31m-      <input type="text" v-model="productID">[m
+[31m-      <button class="button--green" @click="showProduct"> Ürünü Göster</button>[m
+[31m-    </div>[m
+[32m+[m[41m    [m
+     <p class="subtitle">Görüntülemek İstediğiniz Ürünün ID bilgisini yazmanız yeterlidir.</p>[m
+   </div>[m
+ </template>[m
+[31m-<script>[m
+[31m-  export default {[m
+[31m-    data(){[m
+[31m-      return {[m
+[31m-        productID : null[m
+[31m-      }[m
+[31m-    },[m
+[31m-    methods : {[m
+[31m-      showProduct(){[m
+[31m-        this.$router.push("/products/" + this.productID)[m
+[31m-        [m
+[31m-      }[m
+[31m-    }[m
+[31m-  }[m
+[31m-</script>[m
+[32m+[m
+ <style scoped>[m
+ [m
+   .title {[m

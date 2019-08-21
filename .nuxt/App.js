@@ -3,9 +3,12 @@ import { getMatchedComponentsInstances, promisify, globalHandleError } from './u
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import _6f6c098b from '..\\layouts\\default.vue'
+import '..\\assets\\css\\style.css'
 
-const layouts = { "_default": _6f6c098b }
+import _6f6c098b from '..\\layouts\\default.vue'
+import _00e60039 from '..\\layouts\\product.vue'
+
+const layouts = { "_default": _6f6c098b,"_product": _00e60039 }
 
 export default {
   head: {"title":"2-pages-routing-views-layouts","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My impressive Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},

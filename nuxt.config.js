@@ -26,7 +26,9 @@ module.exports = {
   /*
   ** Global CSS
   */
+ /*------------------Sayfa geneli için ------------------------*/ 
   css: [
+    "~/assets/css/style.css"
   ],
 
   /*

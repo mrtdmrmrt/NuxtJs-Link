@@ -21,7 +21,8 @@
     //validate de true dönerse sayfa açılır false dönerse sayfa açılmaz
     validate(arg){
       console.log(arg);
-      return true;
+     // return arg.params.productId == 2;//2 dışında gelen sayılarda false döner
+     return /^\d+$/.test(arg.params.productId) //regex kullanarak integer kontrolü yapıldı
     },
     methods : {
       showProduct(){

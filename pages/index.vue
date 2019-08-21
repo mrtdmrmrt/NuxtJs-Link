@@ -9,9 +9,20 @@
       <a href="/products" class="button--green">Ürünler (Server Side Rendering)</a>
       <nuxt-link to="/products" tag="a" class="button--green">Ürünler</nuxt-link>
     </div>
-
+    <br>
+    <logo />
   </section>
 </template>
+
+<script>
+  import Logo from "@/components/Logo"
+  export default {
+    components : {
+      //Logo:Logo
+      Logo
+    }
+  }
+</script>
 
 <style scoped>
   .container {
